@@ -1,0 +1,41 @@
+GET /mtasxdms/simservs.ngn.etsi.org/users/sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org/simservs.xml/~~/simservs/communication-diversion HTTP/1.1
+Host: 10.48.33.2:8090
+Accept: */*
+User-Agent: 3gpp-gba
+Accept-Charset: *
+X-3GPP-Asserted-Identity: "sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org"
+X-XCAP-Asserted-Identity: "sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org"
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache
+ETag: 34
+Content-Type: application/xcap-el+xml
+Content-Length: 1139
+Date: Mon, 30 Oct 2017 23:36:44 GMT
+
+<ss:communication-diversion xmlns:ss="http://uri.etsi.org/ngn/params/xml/simservs/xcap" active="true"><ss:NoReplyTimer>30</ss:NoReplyTimer><cp:ruleset xmlns:cp="urn:ietf:params:xml:ns:common-policy"><cp:rule id="cfb"><cp:conditions><ss:rule-deactivated/><ss:busy/></cp:conditions><cp:actions><ss:forward-to><ss:target>tel:+31621552038</ss:target></ss:forward-to></cp:actions></cp:rule><cp:rule id="cfnrc">
+  <cp:conditions>
+    <ss:not-reachable/>
+  </cp:conditions>
+  <cp:actions>
+    <ss:forward-to>
+      <ss:target>sip:+31621552038@ims.mnc004.mcc204.3gppnetwork.org;user=phone</ss:target>
+    </ss:forward-to>
+  </cp:actions>
+</cp:rule><cp:rule id="cfnr"><cp:conditions><ss:rule-deactivated/><ss:no-answer/></cp:conditions><cp:actions><ss:forward-to><ss:target>tel:+31654502100</ss:target></ss:forward-to><ss:NoReplyTimer>30</ss:NoReplyTimer></cp:actions></cp:rule><cp:rule id="cfu">
+  <cp:conditions><ss:rule-deactivated/></cp:conditions>
+  <cp:actions><ss:forward-to><ss:target>sip:+31433551208@ims.mnc004.mcc204.3gppnetwork.org;user=phone</ss:target></ss:forward-to></cp:actions>
+</cp:rule></cp:ruleset></ss:communication-diversion>
+
+
+### Test
+curl -v \
+-H "User-Agent: 3gpp-gba" \
+-H "Accept-Charset: *" \
+-H 'X-3GPP-Asserted-Identity: "sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org"' \
+-H 'X-XCAP-Asserted-Identity: "sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org"' \
+http://localhost:8090/mtasxdms/simservs.ngn.etsi.org/users/sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org/simservs.xml/~~/simservs/communication-diversion
