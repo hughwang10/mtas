@@ -31,11 +31,3 @@ Date: Mon, 30 Oct 2017 23:36:44 GMT
   <cp:actions><ss:forward-to><ss:target>sip:+31433551208@ims.mnc004.mcc204.3gppnetwork.org;user=phone</ss:target></ss:forward-to></cp:actions>
 </cp:rule></cp:ruleset></ss:communication-diversion>
 
-
-### Test
-curl -v \
--H "User-Agent: 3gpp-gba" \
--H "Accept-Charset: *" \
--H 'X-3GPP-Asserted-Identity: "sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org"' \
--H 'X-XCAP-Asserted-Identity: "sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org"' \
-http://localhost:8090/mtasxdms/simservs.ngn.etsi.org/users/sip:+31611808148@ims.mnc004.mcc204.3gppnetwork.org/simservs.xml/~~/simservs/communication-diversion
