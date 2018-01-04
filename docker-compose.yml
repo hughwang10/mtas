@@ -4,5 +4,5 @@ web:
   #   # - /home/hugh/myshare/projects//vAFG17/archive:/data  
   #   - /home/hugh/Downloads/data/:/data
   ports:
-    - "8090:80"
+    - "8090:8090"
 

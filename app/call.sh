@@ -12,13 +12,14 @@ http://$ts_access/simservs.ngn.etsi.org/users/sip:$ue@$realm/simservs.xml/~~/sim
 
 # from ts to mtas
 ue='+31611808148'
-ts_access='10.44.147.246'
-realm='ims.mnc004.mcc204.3gppnetwork.org'
+ts_access='10.163.45.4'
+realm='ims.mnc001.mcc272.3gppnetwork.org'
 curl -v \
 -H "User-Agent: 3gpp-gba" \
 -H "Accept-Charset: *" \
 -H 'X-3GPP-Asserted-Identity: "sip:$ue@$realm"' \
 -H 'X-XCAP-Asserted-Identity: "sip:$ue@$realm"' \
-http://$ts_access:8090/mtasxdms/simservs.ngn.etsi.org/users/sip:$ue@$realm/simservs.xml/~~/simservs/communication-diversion
+-H 'Host: xcap.ims.mnc001.mcc272.pub.3gppnetwork.org' \
+http://$ts_access:8080/mtasxdms/simservs.ngn.etsi.org/users/sip:$ue@$realm/simservs.xml/~~/simservs/communication-diversion
 # end
 
